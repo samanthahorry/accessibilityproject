@@ -3,6 +3,7 @@
 <title>Example of Speech Recognition</title>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script>
+var itemclicked= null;
 $(document).ready(function() {
  $("#commandbutton").click(function() {
  	var potentialcommand = $("#command").val();
@@ -31,16 +32,37 @@ $(document).ready(function() {
       	    if($(this)[0].tagName == "INPUT") {
       	    	if($(this)[0].attr("name")=="args") {
 		  $(this)[0].trigger("click");
+		  itemclicked= $(this)[0];
 		}
       	    }
       	  })
       	  break;
       	case "scroll":
       	  // what do we do on scroll?
+		switch(args) {
+			case "down":
+				$("html, body").animate({ scrollTop: $(document).height()-$(window).height() });
+				break;
+			case "up":
+				$("html, body").animate({ scrollTop: 0 });
+				break;
+			case "right":
+				var leftPos = $('.innerWrapper').scrollLeft();
+  				$(".innerWrapper").animate({scrollLeft: leftPos + 200}, 800);
+				break;
+			case "left":
+				var leftPos0 = $('.innerWrapper').scrollLeft();
+  				$(".innerWrapper").animate({scrollLeft: leftPos0 - 200}, 800);
+				break;
+			default:
+				console.log("sorry, that is not a valid direction to scroll in");
+			   }
       	  console.log("handling scroll`");
       	  break;
       	case "enter":
-      	  // what do we do on enter?
+      	  if(itemclicked){
+		  itemclicked.val(itemclicked.val() + args);
+	  }
       	  console.log("handling enter")
       	  break;
       	default:
