@@ -14,14 +14,14 @@ $(document).ready(function() {
 
  	if(result) {
 	  var verb = result[1];
-      var arg = result[2]
+      var arg = result[2];
 
-      console.log("verb: " + verb + ", args: " + arg)
+      console.log("verb: " + verb + ", args: " + arg);
 
       switch(verb) {
       	case "click":
       	  // what do we do if click?
-      	  console.log("handling click")
+      	  console.log("handling click");
 
       	  //console.log($("*:contains('" + arg + "')"));
 
@@ -29,14 +29,15 @@ $(document).ready(function() {
 
       	  $("a,input,button").each(function() {
       	    if($(this)[0].tagName == "INPUT") {
-      	    	// look for the text in INPUT fields
+      	    	if($(this)[0].attr("name")=="args") {
+		  $(this)[0].trigger("click");
+		}
       	    }
       	  })
-
       	  break;
       	case "scroll":
       	  // what do we do on scroll?
-      	  console.log("handling scroll`")
+      	  console.log("handling scroll`");
       	  break;
       	case "enter":
       	  // what do we do on enter?
