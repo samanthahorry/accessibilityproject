@@ -42,7 +42,7 @@ if (!('webkitSpeechRecognition' in window)) {
 	  var verb = result[1];
       var arg = result[2];
 
-      console.log("verb: " + verb + ", args: " + arg);
+      console.log("verb: " + verb + ", arg: " + arg);
 
       switch(verb) {
       	case "click":
@@ -55,7 +55,7 @@ if (!('webkitSpeechRecognition' in window)) {
 
       	  $("a,input,button").each(function() {
       	    if($(this)[0].tagName == "INPUT") {
-      	    	if($(this)[0].attr("name")=="args") {
+      	    	if($(this)[0].attr("name")=="arg") {
 		  $(this)[0].trigger("click");
 		  itemclicked= $(this)[0];
 		}
@@ -86,7 +86,7 @@ if (!('webkitSpeechRecognition' in window)) {
       	  break;
       	case "enter":
       	  if(itemclicked){
-		  itemclicked.val(itemclicked.val() + args);
+		  itemclicked.val(itemclicked.val() + arg);
 	  }
       	  console.log("handling enter")
       	  break;
