@@ -27,8 +27,6 @@ if (!('webkitSpeechRecognition' in window)) {
     	    interim_transcript += event.results[i][0].transcript;
     	  }
 	 }
-    final_span.innerHTML = linebreak(final_transcript);
-    interim_span.innerHTML = linebreak(interim_transcript);
  
 			   
  	var potentialcommand = final_transcript
