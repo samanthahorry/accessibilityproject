@@ -31,12 +31,12 @@ if (!('webkitSpeechRecognition' in window)) {
  
 			   
  	var potentialcommand = final_transcript
+	final_transcript='';
 
  	console.log(potentialcommand);
 
     var re = /^(click|scroll|enter)\s(.*)/i;
     var result = re.exec(potentialcommand);
-    
  	if(result) {
 	console.log(result);
 	  var verb = result[1];
