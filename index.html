@@ -16,7 +16,6 @@ if (!('webkitSpeechRecognition' in window)) {
   
  $("#commandbutton").click(function() {
 	 final_transcript = '';
-  	 recognition.start();
 	 recognition.onresult = function(event) {
   	  var interim_transcript = '';
 
@@ -27,7 +26,6 @@ if (!('webkitSpeechRecognition' in window)) {
     	    interim_transcript += event.results[i][0].transcript;
     	  }
 	 }
-    final_transcript = capitalize(final_transcript);
     final_span.innerHTML = linebreak(final_transcript);
     interim_span.innerHTML = linebreak(interim_transcript);
  
