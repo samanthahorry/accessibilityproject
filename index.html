@@ -15,6 +15,7 @@ if (!('webkitSpeechRecognition' in window)) {
 
   
  $("#commandbutton").click(function() {
+	 recognition.start();
 	 final_transcript = '';
 	 recognition.onresult = function(event) {
   	  var interim_transcript = '';
