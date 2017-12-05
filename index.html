@@ -64,7 +64,7 @@ if (!('webkitSpeechRecognition' in window)) {
       	  break;
       	case "scroll":
       	  // what do we do on scroll?
-		switch(args) {
+		switch(arg) {
 			case "down":
 				$("html, body").animate({ scrollTop: $(document).height()-$(window).height() });
 				break;
