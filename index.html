@@ -18,6 +18,7 @@ if (!('webkitSpeechRecognition' in window)) {
 	 recognition.start();
 	 final_transcript = '';
 	 recognition.onresult = function(event) {
+	 final_transcript = '';
   	  var interim_transcript = '';
 
    	 for (var i = event.resultIndex; i < event.results.length; ++i) {
@@ -35,8 +36,9 @@ if (!('webkitSpeechRecognition' in window)) {
 
     var re = /^(click|scroll|enter)\s(.*)/i;
     var result = re.exec(potentialcommand);
-
+    
  	if(result) {
+	console.log(result);
 	  var verb = result[1];
       var arg = result[2];
 
