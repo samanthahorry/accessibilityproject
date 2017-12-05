@@ -16,7 +16,7 @@ if (!('webkitSpeechRecognition' in window)) {
   
  $("#commandbutton").click(function() {
 	 final_transcript = '';
- 	 recognition.lang = select_dialect.value;
+ 	 recognition.lang = “en-US”;
   	 recognition.start();
 	 recognition.onresult = function(event) {
   	  var interim_transcript = '';
